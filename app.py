@@ -29,12 +29,12 @@ with onglet_saisie:
         sexe = c3.radio("Sexe", db.SEXES, horizontal=True, index=None)
 
         st.subheader("Séjour")
-        c1, c2, c3, c4 = st.columns(4)
+        c1, c2, c3, c4, c5 = st.columns(5)
         pathologie = c1.selectbox("Pathologie / acte", db.PATHOLOGIES, index=None)
         date_admission = c2.date_input("Date d'admission", value=date.today(), format="DD/MM/YYYY")
         date_sortie = c3.date_input("Date de sortie", value=None, format="DD/MM/YYYY")
         mode_sortie = c4.selectbox("Mode de sortie", db.MODES_SORTIE)
-        etablissement = c4.selectbox("Établissement", db.ETABLISSEMENTS, index=None)
+        etablissement = c5.selectbox("Établissement", db.ETABLISSEMENTS, index=None)
 
         envoye = st.form_submit_button("Enregistrer", type="primary")
 

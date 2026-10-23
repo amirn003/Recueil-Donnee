@@ -49,6 +49,8 @@ with onglet_saisie:
             erreurs.append("La date de sortie est antérieure à la date d'admission.")
         if mode_sortie != "En cours" and date_sortie is None:
             erreurs.append("Un mode de sortie est renseigné sans date de sortie.")
+        if etablissement is None:
+            erreurs.append("Choisis l'établissement.")
 
         if erreurs:
             for e in erreurs:

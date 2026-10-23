@@ -34,6 +34,7 @@ with onglet_saisie:
         date_admission = c2.date_input("Date d'admission", value=date.today(), format="DD/MM/YYYY")
         date_sortie = c3.date_input("Date de sortie", value=None, format="DD/MM/YYYY")
         mode_sortie = c4.selectbox("Mode de sortie", db.MODES_SORTIE)
+        etablissement = c4.selectbox("Établissement", db.ETABLISSEMENTS, index=None)
 
         envoye = st.form_submit_button("Enregistrer", type="primary")
 
@@ -61,6 +62,7 @@ with onglet_saisie:
                 "date_admission": date_admission.isoformat(),
                 "date_sortie": date_sortie.isoformat() if date_sortie else None,
                 "mode_sortie": mode_sortie,
+                "etablissement": etablissement,
             })
             st.success(f"Prise en charge enregistrée pour {code_patient.strip().upper()}.")
 

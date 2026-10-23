@@ -12,6 +12,7 @@ DB_PATH = Path(__file__).parent / "parcours.db"
 PATHOLOGIES = ["AVC", "Infarctus du myocarde", "Coronarographie / angioplastie"]
 SEXES = ["F", "H"]
 MODES_SORTIE = ["En cours", "Domicile", "SSR / rééducation", "Transfert", "Décès"]
+ETABLISSEMENTS = ["CHU", "CH", "Clinique privée", "Autre"]
 
 
 def get_connection() -> sqlite3.Connection:
@@ -33,6 +34,7 @@ def init_db() -> None:
                 date_admission   TEXT    NOT NULL,   -- format ISO AAAA-MM-JJ
                 date_sortie      TEXT,
                 mode_sortie      TEXT    NOT NULL DEFAULT 'En cours',
+                etablissement    TEXT,
                 saisi_le         TEXT    DEFAULT CURRENT_TIMESTAMP
             )
             """
@@ -43,7 +45,7 @@ def ajouter_prise_en_charge(donnees: dict) -> int:
     """Insère un épisode. `donnees` est un dict dont les clés = noms de colonnes."""
     colonnes = [
         "code_patient", "annee_naissance", "sexe", "pathologie",
-        "date_admission", "date_sortie", "mode_sortie",
+        "date_admission", "date_sortie", "mode_sortie", "etablissement"
     ]
     valeurs = [donnees.get(c) for c in colonnes]
     requete = (

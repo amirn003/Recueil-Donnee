@@ -12,7 +12,7 @@ DB_PATH = Path(__file__).parent / "parcours.db"
 PATHOLOGIES = ["AVC", "Infarctus du myocarde", "Coronarographie / angioplastie"]
 SEXES = ["F", "H"]
 MODES_SORTIE = ["En cours", "Domicile", "SSR / rééducation", "Transfert", "Décès"]
-ETABLISSEMENTS = ["CHU", "CH", "Clinique privée", "Autre"]
+ETABLISSEMENTS = ["CHU de Bordeaux", "CHU de Toulouse", "Gustave Roussy", "CHU de Poitiers" "Autre"]
 
 
 def get_connection() -> sqlite3.Connection:

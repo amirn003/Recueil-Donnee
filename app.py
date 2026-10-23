@@ -39,7 +39,7 @@ with onglet_saisie:
         envoye = st.form_submit_button("Enregistrer", type="primary")
 
     if envoye:
-        # Validation : on accumule toutes les erreurs pour les afficher en une fois.
+        # Validation : on accumule toutes les erreurs pour les affichr en une fois.
         erreurs = []
         if not code_patient.strip():
             erreurs.append("Le code patient est obligatoire.")
